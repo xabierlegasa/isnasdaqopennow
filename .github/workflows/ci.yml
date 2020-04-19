@@ -27,4 +27,4 @@ jobs:
         run: php artisan key:generate
 
       - name: Run the tests
-        run: composer test
+        run: composer phpunit
