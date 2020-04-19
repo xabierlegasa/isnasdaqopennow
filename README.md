@@ -7,5 +7,7 @@ github workflows codely tv code: https://github.com/CodelyTV/ci_with_github_acti
 - Run this project with docker.
 - Add Acceptance tests (behat)
 
+Build Continuous Integration pipeline
+
 - Add unit test to github workflow pipeline:
 - Add acceptance tests to github workflow pipeline:

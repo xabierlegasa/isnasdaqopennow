@@ -22,3 +22,6 @@ jobs:
       - name: Install composer dependencies
         # working-directory: ./you/can/run/this/from-any-path
         run: composer install --ignore-platform-reqs
+
+      - name: Run the tests
+        run: composer test
