@@ -4,8 +4,15 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        #        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest]
+        # php-versions key comes from github shivammathur/setup-php library we are using to change php version
+        php-versions: ['7.3', '7.4']
 
+    name: ${{ matrix.os }} PHP ${{ matrix.php-versions }}
     steps:
       - uses: actions/checkout@v2
 
@@ -19,6 +26,16 @@ jobs:
           echo "Job Context: $JOB_CONTEXT"
           echo "Done!"
 
+      - name: Greeting if Ubuntu
+        if: matrix.os == 'ubuntu-latest'
+        run: echo "Hi from Ubuntu!"
+
+      - name: Setup PHP version
+        uses: shivammathur/setup-php@v1
+        with:
+          php-version: ${{ matrix.php-versions }}
+          coverage: none
+
       - name: Install composer dependencies
         # working-directory: ./you/can/run/this/from-any-path
         run: composer install --ignore-platform-reqs
@@ -27,4 +44,4 @@ jobs:
       #  run: php artisan key:generate
 
       - name: Run the tests
-        run: ./vendor/bin/phpunit
+        run: composer phpunit

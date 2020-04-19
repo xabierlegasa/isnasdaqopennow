@@ -7,16 +7,21 @@ github workflows codely tv code: https://github.com/CodelyTV/ci_with_github_acti
 
 ## Concepts
 
+BUILD     --->      TESTS      -->         DEPLOY STG       -->     DEPLOY PROD
+
+   Integración Continua                         Entrega continua
+|---------------------------------||-------------------------------------------|
+
 Integración continua: Generar la build y luego pasar todos los tipos de tests de la pirámide de tests.
-    BUILD ---> TESTS
 
 
 
 
 
+## TO DO
+- In the build include a .env with some variables that will be where ?
+    - Once this is done, run "composer test" in the build to test all tests (also tests/Feature will be run)
 
-
-## TODOS:
 - Run this project with docker.
 - Add Acceptance tests (behat)
 
