@@ -23,8 +23,8 @@ jobs:
         # working-directory: ./you/can/run/this/from-any-path
         run: composer install --ignore-platform-reqs
 
-      - name: Before using Laravel's encrypter, you must set a key option in your config/app.php configuration file
-        run: php artisan key:generate
+      #- name: Before using Laravel's encrypter, you must set a key option in your config/app.php configuration file
+      #  run: php artisan key:generate
 
       - name: Run the tests
         run: composer phpunit
