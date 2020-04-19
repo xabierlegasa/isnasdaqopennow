@@ -3,6 +3,19 @@
 
 github workflows codely tv code: https://github.com/CodelyTV/ci_with_github_actions-course
 
+
+
+## Concepts
+
+Integración continua: Generar la build y luego pasar todos los tipos de tests de la pirámide de tests.
+    BUILD ---> TESTS
+
+
+
+
+
+
+
 ## TODOS:
 - Run this project with docker.
 - Add Acceptance tests (behat)
