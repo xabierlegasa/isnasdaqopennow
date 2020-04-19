@@ -11,10 +11,14 @@ jobs:
 
       - name: Hello Codelies!
         run: echo "Hello!!!! from ${{ github.workflow }} triggered by the ${{ github.event_name }} done by ${{ github.actor }}"
-      
+
       - name: 😊 More and more
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: |
           echo "Job Context: $JOB_CONTEXT"
           echo "Done!"
+
+      - name: Install composer dependencies
+        # working-directory: ./you/can/run/this/from-any-path
+        run: composer install --ignore-platform-reqs
