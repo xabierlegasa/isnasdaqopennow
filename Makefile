@@ -6,7 +6,7 @@ build: deps start
 
 deps: composer-install
 
-# 🐘 Composer
+# 🐘 Composer using docker
 composer-install: CMD=install
 composer-update: CMD=update
 composer composer-install composer-update:
