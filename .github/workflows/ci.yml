@@ -49,7 +49,6 @@ jobs:
               sleep 2
           done
       - name: Run the tests
-        working-directory: ./lessons/04-Testing_Infrastructure/04.2-Installing_dependencies_by_docker
         run: make test
 
 #      - name: Start app
