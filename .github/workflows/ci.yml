@@ -37,11 +37,9 @@ jobs:
           coverage: none
 
       - name: Install dependencies
-        working-directory: ./docker
         run: make composer-install
 
       - name: Start all the environment
-        working-directory: ./docker
         run: make start
 
 #      - name: Wait for the environment to get up
