@@ -37,17 +37,32 @@ jobs:
           coverage: none
 
       - name: Install dependencies
+        working-directory: ./docker
         run: make composer-install
 
-      - name: Start app
+      - name: Start all the environment
         working-directory: ./docker
         run: make start
 
-#      - name: Install composer dependencies
-#        run: composer install --ignore-platform-reqs
+#      - name: Wait for the environment to get up
+#        run: |
+#          while ! docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent &> /dev/null ; do
+#              echo "Waiting for database connection..."
+#              sleep 2
+#          done
+#      - name: Run the tests
+#        working-directory: ./lessons/04-Testing_Infrastructure/04.2-Installing_dependencies_by_docker
+#        run: make test
 
-      #- name: Before using Laravel's encrypter, you must set a key option in your config/app.php configuration file
-      #  run: php artisan key:generate
-
-      - name: Run the tests
-        run: composer phpunit
+#      - name: Start app
+#        working-directory: ./docker
+#        run: make start
+#
+##      - name: Install composer dependencies
+##        run: composer install --ignore-platform-reqs
+#
+#      #- name: Before using Laravel's encrypter, you must set a key option in your config/app.php configuration file
+#      #  run: php artisan key:generate
+#
+#      - name: Run the tests
+#        run: composer phpunit
