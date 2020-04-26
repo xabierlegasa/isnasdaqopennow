@@ -39,7 +39,8 @@ jobs:
       - name: Install dependencies
         run: make composer-install
 
-      - name: Install dependencies
+      - name: Start app
+        working-directory: ./docker
         run: make start
 
 #      - name: Install composer dependencies
