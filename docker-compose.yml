@@ -23,7 +23,7 @@ services:
       XDEBUG_CONFIG: "remote_host=${ISNASDAQOPENNOW_DEBUG_HOST_IP}"
       PHP_IDE_CONFIG: "serverName=is-nasdaq-open-now-php"
     volumes:
-      - ./log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
+      - ./build/php-fpm/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
 
       # Map all projects to easy access all available code
       - ..:/code-is-nasdaq-open-now
@@ -37,6 +37,7 @@ services:
   # database
   # *****************************
   db:
+    container_name: is-nasdaq-open-now-container-mysql
     build: build/db
     ports:
       - 3306:3306
