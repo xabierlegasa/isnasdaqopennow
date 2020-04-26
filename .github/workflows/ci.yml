@@ -36,9 +36,14 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           coverage: none
 
-      - name: Install composer dependencies
-        # working-directory: ./you/can/run/this/from-any-path
-        run: composer install --ignore-platform-reqs
+      - name: Install dependencies
+        run: make composer-install
+
+      - name: Install dependencies
+        run: make start
+
+#      - name: Install composer dependencies
+#        run: composer install --ignore-platform-reqs
 
       #- name: Before using Laravel's encrypter, you must set a key option in your config/app.php configuration file
       #  run: php artisan key:generate
