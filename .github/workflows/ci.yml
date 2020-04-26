@@ -8,9 +8,9 @@ jobs:
     strategy:
       matrix:
         #        os: [ubuntu-latest, windows-latest, macOS-latest]
-        os: [ubuntu-19.10]
+        os: [ubuntu-20]
         # php-versions key comes from github shivammathur/setup-php library we are using to change php version
-        php-versions: ['7.3']
+        php-versions: ['7.4']
 
     name: ${{ matrix.os }} PHP ${{ matrix.php-versions }}
     steps:
