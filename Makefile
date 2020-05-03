@@ -11,7 +11,7 @@ composer-install: CMD=install
 composer-update: CMD=update
 composer composer-install composer-update:
 	@docker run --rm --interactive --user $(id -u):$(id -g) \
-		--volume $(current-dir):/app \
+		--volume $(current-dir):/code-is-nasdaq-open-now \
 		--volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp \
 		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
@@ -46,17 +46,17 @@ rebuild:
 	make start
 
 prepare-local:
-	curl -sS https://get.symfony.com/cli/installer | bash
+# 	curl -sS https://get.symfony.com/cli/installer | bash
 
 start-local:
-	symfony serve --dir=apps/mooc/backend/public --port=8030 -d --no-tls --force-php-discovery
-	symfony serve --dir=apps/backoffice/frontend/public --port=8032 -d --no-tls --force-php-discovery
-	symfony serve --dir=apps/backoffice/backend/public --port=8034 -d --no-tls --force-php-discovery
-
+# 	symfony serve --dir=apps/mooc/backend/public --port=8030 -d --no-tls --force-php-discovery
+# 	symfony serve --dir=apps/backoffice/frontend/public --port=8032 -d --no-tls --force-php-discovery
+# 	symfony serve --dir=apps/backoffice/backend/public --port=8034 -d --no-tls --force-php-discovery
+#
 stop-local:
-	symfony server:stop --dir=apps/mooc/backend/public
-	symfony server:stop --dir=apps/backoffice/frontend/public
-	symfony server:stop --dir=apps/backoffice/backend/public
+# 	symfony server:stop --dir=apps/mooc/backend/public
+# 	symfony server:stop --dir=apps/backoffice/frontend/public
+# 	symfony server:stop --dir=apps/backoffice/backend/public
 
 ping-mysql:
 	docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent &> /dev/null
