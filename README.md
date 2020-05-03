@@ -29,3 +29,6 @@ Build Continuous Integration pipeline
 
 - Add unit test to github workflow pipeline:
 - Add acceptance tests to github workflow pipeline:
+- Apply https://github.com/FriendsOfPHP/PHP-CS-Fixer in the build
+- Apply Code sniffer
+- Apply phpstan
