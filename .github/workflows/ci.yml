@@ -57,9 +57,6 @@ jobs:
               sleep 2
           done
 
-      - name: Make algo
-        run: make algo
-
       - name: Run the tests
         run: make test
 
