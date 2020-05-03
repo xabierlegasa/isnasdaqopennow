@@ -25,8 +25,6 @@ services:
       PHP_IDE_CONFIG: "serverName=is-nasdaq-open-now-php"
     volumes:
       - ./build/php-fpm/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
-
-      # Map all projects to easy access all available code
       - .:/code-is-nasdaq-open-now
     networks:
       webnet:
@@ -44,8 +42,6 @@ services:
       - 3306:3306
     volumes:
       - db-volume:/var/lib/mysql
-
-      # Map all projects to easy access all available code
       - .:/code-is-nasdaq-open-now
     environment:
       - MYSQL_ROOT_PASSWORD=root

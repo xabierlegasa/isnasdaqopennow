@@ -25,7 +25,7 @@ algo:
 	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests/Unit
 
 test:
-	docker exec is-nasdaq-open-now-container-php make run-tests
+	docker exec -w /code-is-nasdaq-open-now is-nasdaq-open-now-container-php make tests
 
 run-tests:
 	mkdir -p build/test_results/phpunit
