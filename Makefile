@@ -22,6 +22,7 @@ reload:
 
 algo:
 	echo "DOING algo..."
+    ./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests/Unit
 
 test:
 	@docker exec is-nasdaq-open-now-container-php make run-tests
