@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     procps \
     libxml2-dev \
+    parallel \
     && rm -r /var/lib/apt/lists/*
 
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com EB563F93142986CE
