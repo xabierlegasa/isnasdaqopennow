@@ -10,14 +10,11 @@ deps: composer-install
 composer-install: CMD=install
 composer-update: CMD=update
 composer composer-install composer-update:
-	@docker run --rm --interactive --user $(id -u):$(id -g) \
-		--volume $(current-dir):/code-is-nasdaq-open-now \
-		--volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp \
+	@docker run --rm --interactive --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
 			--no-ansi \
 			--no-interaction
-
 
 reload:
 	@docker-compose exec php-fpm kill -USR2 1
