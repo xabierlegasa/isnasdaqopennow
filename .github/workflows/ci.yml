@@ -36,6 +36,14 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           coverage: none
 
+#     Cache composer libraries to make pipeline faster
+      - uses: actions/cache@v1
+        with:
+          path: ~/.composer
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
       - name: Install dependencies
         run: make composer-install
 
