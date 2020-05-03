@@ -21,7 +21,7 @@ reload:
 	@docker-compose exec nginx nginx -s reload
 
 algo:
-    echo "DOING algo..."
+	echo "DOING algo..."
 
 test:
 	@docker exec is-nasdaq-open-now-container-php make run-tests
