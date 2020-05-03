@@ -16,6 +16,7 @@ services:
   # php-fpm
   # *****************************
   php_fpm:
+    container_name: is-nasdaq-open-now-container-php
     build: build/php-fpm
     ports:
       - 9001:9001
