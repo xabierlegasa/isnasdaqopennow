@@ -24,10 +24,17 @@ reload:
 test:
 	@docker exec -w /code-is-nasdaq-open-now is-nasdaq-open-now-container-php make run-tests
 
+parallel-test:
+	@docker exec -w /code-is-nasdaq-open-now is-nasdaq-open-now-container-php make run-parallel-tests
+
 run-tests:
 	mkdir -p build/test_results/phpunit
 	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests/Unit
-#	./vendor/bin/behat -p mooc_backend --format=progress -v
+	./vendor/bin/behat -p mooc_backend --format=progress -v
+
+run-parallel-tests:
+ 	mkdir -p build/test_results/phpunit
+ 	parallel --gnu -a tests.parallel || false
 
 # 🐳 Docker Compose
 start: CMD=up -d
