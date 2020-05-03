@@ -33,8 +33,8 @@ run-tests:
 	./vendor/bin/behat -p mooc_backend --format=progress -v
 
 run-parallel-tests:
- 	mkdir -p build/test_results/phpunit
- 	parallel --gnu -a tests.parallel || false
+	mkdir -p build/test_results/phpunit
+	parallel --gnu -a tests.parallel || false
 
 # 🐳 Docker Compose
 start: CMD=up -d
