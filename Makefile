@@ -20,12 +20,15 @@ reload:
 	@docker-compose exec php-fpm kill -USR2 1
 	@docker-compose exec nginx nginx -s reload
 
+algo:
+    echo "DOING algo..."
+
 test:
 	@docker exec is-nasdaq-open-now-container-php make run-tests
 
 run-tests:
 	mkdir -p build/test_results/phpunit
-	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests
+	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests/Unit
 #	./vendor/bin/behat -p mooc_backend --format=progress -v
 
 # 🐳 Docker Compose
