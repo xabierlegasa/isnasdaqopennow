@@ -22,10 +22,6 @@ reload:
 	@docker-compose exec php-fpm kill -USR2 1
 	@docker-compose exec nginx nginx -s reload
 
-algo:
-	echo "DOING algo..."
-	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests/Unit
-
 test:
 	@docker exec -w /code-is-nasdaq-open-now is-nasdaq-open-now-container-php make run-tests
 
