@@ -7,7 +7,7 @@ services:
       - 80:80
     volumes:
       - ./build/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ..:/code-is-nasdaq-open-now
+      - .:/code-is-nasdaq-open-now
     networks:
       webnet:
         ipv4_address: 180.10.10.101
@@ -27,7 +27,7 @@ services:
       - ./build/php-fpm/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
 
       # Map all projects to easy access all available code
-      - ..:/code-is-nasdaq-open-now
+      - .:/code-is-nasdaq-open-now
     networks:
       webnet:
         ipv4_address: 180.10.10.102
@@ -46,7 +46,7 @@ services:
       - db-volume:/var/lib/mysql
 
       # Map all projects to easy access all available code
-      - ..:/code-is-nasdaq-open-now
+      - .:/code-is-nasdaq-open-now
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=user
