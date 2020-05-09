@@ -25,9 +25,8 @@ jobs:
 
       - uses: docker/build-push-action@v1
         with:
-          username: "${{ github.actor }}"
-#          password: "d62c54ed-b684-4b6a-8d4c-52a90cf89a2b"
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: "xabierlegasa"
+          password: "d62c54ed-b684-4b6a-8d4c-52a90cf89a2b"
           repository: xabierlegasa/isnasdaqopennow
           tags: latest
 
