@@ -63,6 +63,3 @@ stop-local:
 # 	symfony server:stop --dir=apps/mooc/backend/public
 # 	symfony server:stop --dir=apps/backoffice/frontend/public
 # 	symfony server:stop --dir=apps/backoffice/backend/public
-
-ping-mysql:
-	docker exec is-nasdaq-open-now-container-mysql mysqladmin --user=root --password=root --host "127.0.0.1" ping --silent
