@@ -23,17 +23,17 @@ jobs:
       - name: Get release version
         run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF:10}
 
-      - uses: docker/build-push-action@v1
-        with:
-          username: "xabierlegasa"
-          password: "d62c54ed-b684-4b6a-8d4c-52a90cf89a2b"
-          repository: xabierlegasa/isnasdaqopennow
-          tags: latest
+#      - uses: docker/build-push-action@v1
+#        with:
+#          username: "xabierlegasa"
+#          password: "d62c54ed-b684-4b6a-8d4c-52a90cf89a2b"
+#          repository: xabierlegasa/isnasdaqopennow
+#          tags: latest
 
-#      - name: Publish to the registry
-#        run: |
-#          docker login docker.pkg.github.com --username "xabierlegasa" --password "d62c54ed-b684-4b6a-8d4c-52a90cf89a2b"
-#          docker push docker.pkg.github.com/xabierlegasa/isnasdaqopennow/isnasdaqopennow:${{github.ref}}
+      - name: Publish to the registry
+        run: |
+          docker login docker.pkg.github.com --username "xabierlegasa" --password "d62c54ed-b684-4b6a-8d4c-52a90cf89a2b"
+          docker push docker.pkg.github.com/xabierlegasa/isnasdaqopennow/isnasdaqopennow:${{RELEASE_VERSION}}
 
       - name: Somethin
         run: pwd
