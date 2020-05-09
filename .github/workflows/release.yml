@@ -4,7 +4,9 @@ name: Docker-image
 #  release:
 #    types: [created]
 
-on: [push]
+on:
+  release:
+    types: [created]
 
 
 jobs:
@@ -23,5 +25,5 @@ jobs:
           docker login docker.pkg.github.com --username "xabierlegasa" --password "d62c54ed-b684-4b6a-8d4c-52a90cf89a2b"
           docker push docker.pkg.github.com/xabierlegasa/isnasdaqopennow/isnasdaqopennow:${{github.ref}}
 
-      - name: algo
+      - name: Somethin
         run: pwd
