@@ -30,7 +30,7 @@ parallel-test:
 run-tests:
 	mkdir -p build/test_results/phpunit
 	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests/Unit
-	./vendor/bin/behat -p mooc_backend --format=progress -v
+	# ./vendor/bin/behat -p mooc_backend --format=progress -v
 
 run-parallel-tests:
 	mkdir -p build/test_results/phpunit
