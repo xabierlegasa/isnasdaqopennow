@@ -60,7 +60,6 @@ jobs:
       - name: Run the tests
         run: make test
 
-
 #      - name: Start app
 #        working-directory: ./docker
 #        run: make start
